@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TrinidadAUD</name>
+    </assembly>
+    <members>
+        <member name="T:Trinidad.Auditoria.Bitacora">
+            <summary>
+            Modela una bitácora encargada de registrar eventos y devolver las líneas
+            solicitadas de acuerdo a los parámetros establecidos.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Bitacora.NombreBitacoraGeneral">
+            <summary>
+            Nombre de la bitácora GENERAL.-
+            </summary>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.AgregarEntrada(System.String)">
+            <summary>
+            Agrega, a la bitácora GENERAL, una nueva entrada con el texto recibido.  Arroja las siguientes excepciones:
+            
+            TextoVacioException():  si el texto recibido para la entrada está vacío.-
+            FileNotFoundException(): si no se puede encontrar el archivo con las definiciones de las bitácoras.-
+            BitacoraNoEncontradaException(): si no se encuentra la definición de la bitácora especificada.-
+            DatosDeInicializacionNoValidosException(): si los datos de inicialización de la bitácora no son válidos.-
+            </summary>
+            <param name="texto">Texto para la nueva entrada de la bitácora.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.AgregarEntrada(System.String,System.String)">
+            <summary>
+            Agrega, a la bitácora indicada, una nueva entrada con el texto recibido como parámetro. Arroja las siguientes excepciones:
+            
+            TextoVacioException(): si el texto recibido para la entrada está vacío.-
+            FileNotFoundException(): si no se puede encontrar el archivo con las definiciones de las bitácoras.-
+            BitacoraNoEncontradaException(): si no se encuentra la definición de la bitácora especificada.-
+            DatosDeInicializacionNoValidosException(): si los datos de inicialización de la bitácora no son válidos.-
+            </summary>
+            <param name="texto">Texto para la nueva entrada de la bitácora.-</param>
+            <param name="nombreBitacora">Nombre de la bitácora a la cual se agregará la nueva entrada.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.AgregarEntrada(System.String,Trinidad.Auditoria.TiposDeEntrada,System.String,System.Int32)">
+            <summary>
+            Agrega a la bitácora GENERAL, una nueva entrada con los datos recibidos como parámetros. Arroja las siguientes excepciones:
+            
+            TextoVacioException(): si el texto recibido para la entrada está vacío.-
+            FileNotFoundException(): si no se puede encontrar el archivo con las definiciones de las bitácoras.-
+            BitacoraNoEncontradaException(): si no se encuentra la definición de la bitácora especificada.-
+            DatosDeInicializacionNoValidosException(): si los datos de inicialización de la bitácora no son válidos.-
+            </summary>
+            <param name="texto">Texto para la nueva entrada de la bitácora.-</param>
+            <param name="tipo">Tipo de la nueva entrada de la bitácora.-</param>
+            <param name="objetoDeNegocio">Objeto de negocio para el que se crea la línea.-</param>
+            <param name="idObjetoDeNegocio">Id del objeto de negocio para el que se crea la entrada.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.AgregarEntrada(System.String,Trinidad.Auditoria.TiposDeEntrada,System.String,System.Int32,System.String)">
+             <summary>
+             Agrega a la bitácora cuyo nombre se indica, una nueva entrada con los datos recibidos como parámetros. Arroja las siguientes excepciones:
+            
+             TextoVacioException(): si el texto recibido para la entrada está vacío.-
+             FileNotFoundException(): si no se puede encontrar el archivo con las definiciones de las bitácoras.-
+             BitacoraNoEncontradaException(): si no se encuentra la definición de la bitácora especificada.-
+             DatosDeInicializacionNoValidosException(): si los datos de inicialización de la bitácora no son válidos.-
+             </summary>
+             <param name="texto">Texto para la nueva entrada de la bitácora.-</param>
+             <param name="tipo">Tipo de la nueva entrada de la bitácora.-</param>
+             <param name="objetoDeNegocio">Objeto de negocio para el que se crea la entrada.-</param>
+             <param name="idObjetoDeNegocio">Identificador del objeto de negocio para el que se crea la entrada.-</param>
+             <param name="nombreBitacora">Nombre de la bitácora a la cual se agregará la nueva entrada.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.DevolverEntradas(System.DateTime,System.DateTime)">
+             <summary>
+             Devuelve, de la bitácora GENERAL, las entradas comprendidas entre las fechas que se reciben por parámetro. De no 
+             encontrar entradas que cumplan los criterios, se devuelve la estructura vacía. Arroja las siguientes excepciones:
+            
+             RangoDeFechasNoValido(): si la fecha DESDE es posterior a la fecha HASTA ó alguna de las fechas recibidas son nulas.-
+             NombreNoValidoException(): si no se especifica el nombre de la bitácora.-
+             FileNotFoundException(): si no se puede encontrar el archivo de configuración de bitácoras.-        
+             BitacoraNoEncontradaException(): si no puede hallarse una bitácora con el nombre indicado.-
+             DatosDeInicializacionNoValidosException(): si los datos para inicializar la bitácora no son válidos.-
+             Excepcion(): si la bitácora no se encuentra almacenada en una base de datos.-
+             </summary>
+             <param name="fechaDesde">Fecha inicial del rango solicitado.-</param>
+             <param name="fechaHasta">Fecha final del rango solicitado.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.DevolverEntradas(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            Devuelve, de la bitácora indicada, las entradas comprendidas entre las fechas que se reciben por parámetro. De no 
+            encontrar entradas que cumplan los criterios, se devuelve la estructura vacía. Arroja las siguientes excepciones:
+            
+            RangoDeFechasNoValido(): si la fecha DESDE es posterior a la fecha HASTA ó alguna de las fechas recibidas son nulas.-
+            NombreNoValidoException(): si no se especifica el nombre de la bitácora.-
+            FileNotFoundException(): si no se puede encontrar el archivo de configuración de bitácoras.-        
+            BitacoraNoEncontradaException(): si no puede hallarse una bitácora con el nombre indicado.-
+            DatosDeInicializacionNoValidosException(): si los datos para inicializar la bitácora no son válidos.-
+            Excepcion(): si la bitácora no se encuentra almacenada en una base de datos.-
+            </summary>
+            <param name="nombreBitacora">Nombre de la bitácora de la cual se devolverán las entradas.-</param>
+            <param name="fechaDesde">Fecha inicial del rango solicitado.-</param>
+            <param name="fechaHasta">Fecha final del rango solicitado.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.DevolverEntradas(System.String,System.String,System.Int32)">
+            <summary>
+            Devuelve, de la bitácora indicada, las entradas correspondientes al objeto de  negocio cuyos datos de identificación 
+            se reciben por parámetro. De no encontrar entradas que cumplan los criterios, se devuelve la estructura vacía.-
+            Arroja las siguientes excepciones:
+            
+            BitacoraNoEncontradaException(): si no puede hallarse una bitácora con el nombre indicado.-
+            NombreNoValidoException(): si no se especifica el objeto de negocio para el que se desean recuperar líneas.-
+            IdNoValidoException(): si el Id del objeto de negocio no es válido.-
+            DatosDeInicializacionNoValidosException(): si los datos para inicializar la bitácora no son válidos.-
+            </summary>
+            <param name="nombreBitacora">Nombre de la bitácora de la cual se devolverán las entradas.-</param>
+            <param name="objetoDeNegocio">Objeto de negocio para el cual se desea obtener las entradas.-</param>
+            <param name="idObjetoDeNegocio">Identificador del objeto de negocio para el cual se desea obtener las entradas.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.DevolverEntradas(System.String,Trinidad.Auditoria.TiposDeEntrada,System.String,System.Int32)">
+             <summary>
+             Devuelve, de la bitácora indicada, las entradas correspondientes al objeto de negocio cuyos datos de identificación se reciben por parámetro. De no encontrar entradas que cumplan los criterios, se devuelve la estructura vacía. 
+             Arroja las siguientes excepciones:
+            
+             BitacoraNoEncontradaException(): si no puede hallarse una bitácora con el nombre indicado.-
+             NombreNoValidoException(): si no se especifica el objeto de negocio para el que se desean recuperar líneas.-
+             IdNoValidoException(): si el Id del objeto de negocio no es válido.-
+             DatosDeInicializacionNoValidosException(): si el tipo almacenamiento u otro dato básico para armar la bitácora no se encuentra o es inválido.-
+             </summary>
+             <param name="nombreBitacora">Nombre de la bitácora de la cual se devolverá la entrada.-</param>
+             <param name="tipoDeEntrada">Tipo de la entrada que se desea obtener.-</param>
+             <param name="objetoDeNegocio">Objeto de negocio para el cual se desea obtener la entrada.-</param>
+             <param name="idObjetoDeNegocio">Identificador del objeto de negocio para el cual se desea obtener la entrada.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.obtenerConexion(System.String)">
+            <summary>
+            Obtiene un objeto conexión con los datos correspondientes para el acceso a la base de datos de la bitácora indicada. Arroja las excepciones:
+            
+            NombreNoValidoException(): si no se especifica el nombre de la bitácora.-
+            BitacoraNoEncontradaException(): si no se encuentra la bitácora indicada.-
+            DatosDeInicializacionNoValidosException(): si los datos para inicializar la bitácora no son válidos.-
+            Exception(): excepción general.-
+            </summary>
+            <param name="nombreBitacora">Nombre de la bitacora para la que se desea obtener la conexión.-</param>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.agregarEntradaBD(System.String,Trinidad.Auditoria.TiposDeEntrada,System.String,System.Int32,System.String)">
+            <summary>
+             Agrega una nueva entrada en una bitácora almacenada en una base de datos.-
+            </summary>
+            <param name="texto">Texto para la nueva entrada de la bitácora.-</param>
+            <param name="tipo">Tipo de la entrada que se desea agregar.-</param>
+            <param name="objetoDeNegocio">Objeto de negocio para el cual se desea agregar la entrada.-</param>
+            <param name="idObjetoDeNegocio">Identificador del objeto de negocio para el cual se desea agregar la entrada.-</param>
+            <param name="nombreBitacora">Nombre de la bitácora en la cual se agregará la entrada.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.agregarEntradaTXT(System.String,Trinidad.Auditoria.TiposDeEntrada,System.String,System.Int32,System.String)">
+            <summary>
+            Agrega una nueva entrada en una bitácora de texto. Arroja las siguientes excepciones:
+            
+            DirectoryNotFoundException(): si no se encuentra el directorio especificado para la bitácora.-
+            Exception(): si ocurre algún error al grabar la entrada.-
+            </summary>
+            <param name="texto">Texto para la nueva entrada de la bitácora.-</param>
+            <param name="tipo">Tipo de la entrada que se desea agregar.-</param>
+            <param name="objetoDeNegocio">Objeto de negocio para el cual se desea agregar la entrada.-</param>
+            <param name="idObjetoDeNegocio">Identificador del objeto de negocio para el cual se desea agregar la entrada.-</param>
+            <param name="nombreBitacora">Nombre de la bitácora en la cual se agregará la entrada.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.armarEntradaDeTXT(System.Int64,Trinidad.Auditoria.TiposDeEntrada,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Arma la entrada para la bitácora de texto.-
+            </summary>
+            <param name="id">Id de la entrada.-</param>
+            <param name="tipoEntrada">Tipo de la entrada.-</param>
+            <param name="objetoDeNegocio">Objeto de negocio de la entrada.-</param>
+            <param name="idObjetoNegocio">Identificador del objeto de negocio de la entrada.-</param>
+            <param name="texto">Texto de la entrada.-</param>
+            <param name="separador">Separador de campos de la entrada.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.Auditoria.Bitacora.grabarEntradaDeTXT(System.String,System.String,System.String,System.String)">
+            <summary>
+            Graba la entrada recibida en el archivo de la bitácora.-
+            </summary>
+            <param name="rutaDeBitacora">Ruta en la que se encuentra el archivo de la bitácora.-</param>
+            <param name="archivoDeBitacora">Nombre del archivo de la bitácora.-</param>
+            <param name="extensionDeBitacora">Extensión del archivo de la bitácora.-</param>
+            <param name="entrada">Entrada a grabar en la bitácora.-</param>
+        </member>
+        <member name="T:Trinidad.Auditoria.Almacenamientos">
+            <summary>
+            Modela los almacenamientos posibles para una bitácora.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Almacenamientos.BaseDeDatos">
+            <summary>
+            Almacenamiento en Base de Datos.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Almacenamientos.ArchivoTXT">
+            <summary>
+            Almacenamiento en archivo de texto (con separadores).-
+            </summary>
+        </member>
+        <member name="T:Trinidad.Auditoria.TiposDeEntrada">
+            <summary>
+            Modela los tipos de entrada permitidos en la bitácora.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.TiposDeEntrada.Generica">
+            <summary>
+            Entrada genérica.-    
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.TiposDeEntrada.Alta">
+            <summary>
+            Entrada para registrar una operación de alta.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.TiposDeEntrada.Baja">
+            <summary>
+            Entrada para registrar una operación de baja.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.TiposDeEntrada.Modificacion">
+            <summary>
+            Entrada para registrar una operación de modificación.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.TiposDeEntrada.Alerta">
+            <summary>
+            Entrada para registrar una alerta.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.TiposDeEntrada.Error">
+            <summary>
+            Entrada para registrar un error.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.TiposDeEntrada.Notificacion">
+            <summary>
+            Entrada para registrar una notificación.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.Auditoria.TextoVacioException">
+            <summary>
+            Excepción que se produce cuando no se informa un texto.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.Auditoria.BitacoraNoEncontradaException">
+            <summary>
+            Excepción que se produce cuando no se encuentra una bitácora .-
+            </summary>
+        </member>
+        <member name="T:Trinidad.Auditoria.EntradaNoEncontradaException">
+            <summary>
+            Excepción que se produce cuando no se puede encontrar una entrada de bitácora.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.Auditoria.Entrada">
+            <summary>
+            Modela una entrada de bitácora.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.id">
+            <summary>
+            Identificador de la entrada.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.fecha">
+            <summary>
+            Fecha de la entrada.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.usuario">
+            <summary>
+            Usuario de la entrada.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.pantalla">
+            <summary>
+            Pantalla de la entrada.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.tipo">
+            <summary>
+            Tipo de la entrada.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.objetoDeNegocio">
+            <summary>
+            Objeto de negocio de la entrada.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.idObjetoDeNegocio">
+            <summary>
+            Identificador del objeto de negocio.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.Auditoria.Entrada.texto">
+            <summary>
+            Texto de la entrada.-
+            </summary>
+        </member>
+        <member name="M:Trinidad.Auditoria.Entrada.#ctor(System.Int64,System.String)">
+            <summary>
+            Constructor. Genera una instancia del objeto basada en el Id recibido como parámetro el que se busca en 
+            la bitácora indicada. Arroja las siguientes excepciones:
+            
+            IdNoValidoException(): si el Id recibido es menor o igual a 0 (cero).-
+            BitacoraNoEncontradaException(): si no puede encontrarse una bitácora con el nombre recibido.- 
+            EntradaNoEncontradaException(): si no puede hallarse una entrada con el Id recibido.-
+            DatosDeInicializacionNoValidosException(): si los datos para inicializar al bitácora no son válidos.-
+            </summary>
+            <param name="idBuscado">Id de la entrada que se desea recuperar.-</param>
+            <param name="nombreBitacora">Nombre de la bitácora desde la cual se desea recuperar la entrada.-</param>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.Id">
+            <summary>
+            Identificador de la entrada.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.Fecha">
+            <summary>
+            Fecha en la que se generó la entrada.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.Usuario">
+            <summary>
+            Usuario que generó la entrada.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.Pantalla">
+            <summary>
+            Pantalla desde la que se generó la entrada.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.Tipo">
+            <summary>
+            Tipo de la entrada.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.ObjetoDeNegocio">
+            <summary>
+            Objeto de negocio para el que se generó la entrada.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.IdObjetoDeNegocio">
+            <summary>
+            Identificador del objeto de negocio para el que se generó la entrada.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.Auditoria.Entrada.Texto">
+            <summary>
+            Texto de la entrada.-
+            </summary>
+        </member>
+    </members>
+</doc>

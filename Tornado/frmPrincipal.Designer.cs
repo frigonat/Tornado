@@ -137,11 +137,11 @@
             // 
             // btnRefrescar
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(312, 177);
+            this.btnRefrescar.Location = new System.Drawing.Point(306, 155);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(75, 23);
             this.btnRefrescar.TabIndex = 4;
-            this.btnRefrescar.Text = "button1";
+            this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = true;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
@@ -240,7 +240,6 @@
             this.dgvPedidos.RowTemplate.Height = 25;
             this.dgvPedidos.Size = new System.Drawing.Size(704, 365);
             this.dgvPedidos.TabIndex = 0;
-            this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellContentClick);
             // 
             // colNroPedido
             // 

@@ -27,8 +27,14 @@ namespace Tornado
         /// </summary>
         private const string objetoDeNegocio = "Pedido";
 
+        /// <summary>
+        /// Ruta del archivo de inicialización con los datos de la base SCE.-
+        /// </summary>
         private string rutaArchivoIni;
 
+        /// <summary>
+        /// Nombre del archivo de inicialización con los datos de la base SCE.-
+        /// </summary>
         private string nombreArchivoIni = "TrinidadDb_SCE.ini";
 
         #region atributos

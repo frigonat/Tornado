@@ -13,46 +13,84 @@ namespace Tornado
     {
 
         #region atributos
+
+        /// <summary>
+        /// Identificador del registro de auditoría.-
+        /// </summary>
         private int id;
 
+        /// <summary>
+        /// Fecha de inicio registrada en la auditoría.-
+        /// </summary>
         private DateTime fechaInicio;
 
+        /// <summary>
+        /// Fecha de finalización registrada en la auditoría.-
+        /// </summary>
         private DateTime fechaFin;
 
+        /// <summary>
+        /// Duración (en minutos) de la ejecución.-
+        /// </summary>
         private int duracion;
 
+        /// <summary>
+        /// Cantidad de Registros Procesados.-
+        /// </summary>
         private int cantidadDeRegistros;
 
+        /// <summary>
+        /// Nombre del archivo CSV generado.-
+        /// </summary>
         private string archivo;
 
         #endregion
 
         #region propiedades
+        
+        /// <summary>
+        /// Obtiene el identificador del registro de auditoría.-
+        /// </summary>
         public int Id
         {
             get { return id; }
         }
 
+        /// <summary>
+        /// Obtiene la fecha de inicio registrada en la auditoría.-
+        /// </summary>
         public DateTime FechaInicio
         {
             get { return fechaInicio; }
         }
 
+        /// <summary>
+        /// Obtiene la fecha de finalización registrada en la auditoría.-
+        /// </summary>
         public DateTime FechaFin
         {
             get { return fechaFin; }
         }
 
+        /// <summary>
+        /// Obtiene la duración (en minutos) de la ejecución registrada en la auditoría.-
+        /// </summary>
         public int Duracion
         {
             get { return duracion; }
         }
 
+        /// <summary>
+        /// Obtiene la cantidad de registros procesados por la ejecución registrada en la auditoría.-
+        /// </summary>
         public int CantidadDeRegistros
         {
             get { return cantidadDeRegistros; }
         }
 
+        /// <summary>
+        /// Obtiene el nombre del archivo generado durante la ejecución registrada en la auditoría.-
+        /// </summary>
         public string Archivo
         {
             get { return archivo; }
@@ -71,6 +109,13 @@ namespace Tornado
         /// </summary>
         private const string objetoDeNegocio = "Auditoría";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idBuscado"></param>
+        /// <exception cref="IdNoValidoException"></exception>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="PedidoNoEncontradoException"></exception>
         public Auditoria(int idBuscado)
         {
             string iSQL = "*Ninguna";
@@ -138,6 +183,10 @@ namespace Tornado
             }
         }
 
+        /// <summary>
+        /// Obtiene 
+        /// </summary>
+        /// <returns></returns>
         public static List<Auditoria> Obtener()
         {
             List<Auditoria> listaParaDevolver = new List<Auditoria>();
@@ -152,6 +201,10 @@ namespace Tornado
             return listaParaDevolver;
         }
 
+        /// <summary>
+        /// Obtiene el último registro de auditoría existente en la base de datos.-
+        /// </summary>
+        /// <returns></returns>
         public static Auditoria ObtenerUltima()
         {
             string iSQL = "SELECT TOP(1) * FROM SSIS_Auditoria ";
@@ -162,6 +215,11 @@ namespace Tornado
             return Auditoria.obtener(iSQL)[0];
         }
 
+        /// <summary>
+        /// Ejecuta la instrucción SQL recibida y devuelve una lista de registros de auditoría.-
+        /// </summary>
+        /// <param name="iSQL">Instrucción SQL para ejecutar.-</param>
+        /// <returns></returns>
         private static List<Auditoria> obtener(string iSQL)
         {
             List<Auditoria> listaParaDevolver = new List<Auditoria>();

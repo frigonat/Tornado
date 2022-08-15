@@ -69,10 +69,5 @@ namespace Tornado
                 dgvPedidos.Rows.Add(valores);
             }
         }
-
-        private void dgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

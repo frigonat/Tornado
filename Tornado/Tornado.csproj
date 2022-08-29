@@ -6,13 +6,21 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>tornado64.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="tornado64.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="AppConfig">
+      <HintPath>AppConfig.dll</HintPath>
+    </Reference>
     <Reference Include="TrinidadAUD">
       <HintPath>TrinidadAUD.dll</HintPath>
     </Reference>

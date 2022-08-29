@@ -184,14 +184,14 @@ namespace Tornado
         }
 
         /// <summary>
-        /// Obtiene 
+        /// Obtiene los últimos 15 registros de auditoría para la interfase.-
         /// </summary>
         /// <returns></returns>
         public static List<Auditoria> Obtener()
         {
             List<Auditoria> listaParaDevolver = new List<Auditoria>();
 
-            string iSQL = "SELECT TOP(10) * FROM SSIS_Auditoria ";
+            string iSQL = "SELECT TOP(15) * FROM SSIS_Auditoria ";
             iSQL += "WHERE idInterfaz = 125 ";
             iSQL += "AND cliente = 'ST JUDE' ";
             iSQL += "ORDER BY idAuditoria DESC";
@@ -256,7 +256,9 @@ namespace Tornado
             foreach (DataRow r in auditoriasEncontradas.Rows)
             {
                 Auditoria a = new Auditoria(r.Field<int>("idAuditoria"));
-                listaParaDevolver.Add(a);
+                a.fechaInicio = a.fechaInicio.AddHours(-3);
+                a.fechaFin = a.fechaFin.AddHours(-3);
+                listaParaDevolver.Add(a); 
             }
 
             return listaParaDevolver;

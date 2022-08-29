@@ -10,9 +10,11 @@ using TrinidadDb;
 
 namespace Tornado
 {
+    /// <summary>
+    /// Modela una línea de un pedido de St.Jude.-
+    /// </summary>
     public class LineaDePedido
     {
-
         #region atributos
         /// <summary>
         /// Número de línea.-
@@ -112,13 +114,13 @@ namespace Tornado
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="nuevoNumero"></param>
-        /// <param name="nuevoSKU"></param>
-        /// <param name="nuevaCantidad"></param>
-        /// <param name="nuevaUOM"></param>
-        /// <param name="nuevoLoteCliente"></param>
-        /// <param name="nuevoLoteSAP"></param>
-        /// <param name="nuevaFechaVencimiento"></param>
+        /// <param name="nuevoNumero">Número de la línea del pedido.-</param>
+        /// <param name="nuevoSKU">Código de SKU de línea del pedido.-</param>
+        /// <param name="nuevaCantidad">Cantidad de unidades de la línea.-</param>
+        /// <param name="nuevaUOM">Unidad de Medida.-</param>
+        /// <param name="nuevoLoteCliente">Número de lote del cliente.-</param>
+        /// <param name="nuevoLoteSAP">Número de lote SAP.-</param>
+        /// <param name="nuevaFechaVencimiento">Fecha de vencimiento del lote.-</param>
         internal LineaDePedido(int nuevoNumero, string nuevoSKU, decimal nuevaCantidad, string nuevaUOM, string nuevoLoteCliente, string nuevoLoteSAP, DateTime nuevaFechaVencimiento)
         {
             this.numero = nuevoNumero;

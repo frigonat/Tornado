@@ -50,9 +50,19 @@ namespace Tornado
         private string propietario;
 
         /// <summary>
+        /// Almacén del pedidos.-
+        /// </summary>
+        private string almacen;
+
+        /// <summary>
         /// Estado del pedido.-
         /// </summary>
         private EstadosDePedido estado;
+
+        /// <summary>
+        /// Cantidad de líneas del pedido.-
+        /// </summary>
+        private int cantidadDeLineas;
 
         /// <summary>
         /// Usuario de alta del pedido.-
@@ -74,12 +84,10 @@ namespace Tornado
         /// </summary>
         private DateTime fechaCorrida;
 
+        /// <summary>
+        /// Cantidad de Intentos.-
+        /// </summary>
 		private int cantidadDeIntentos;
-		
-		private string codigoAlmacen;
-		
-		private string numeroDeOrden;
-		
 
         /// <summary>
         /// Líneas del pedido.-
@@ -104,6 +112,14 @@ namespace Tornado
         public string Propietario
         {
             get { return this.propietario; }
+        }
+
+        /// <summary>
+        /// Obtiene el código del almacén del pedido.-
+        /// </summary>
+        public string Almacen
+        {
+            get { return this.almacen; }
         }
 
         /// <summary>
@@ -146,6 +162,14 @@ namespace Tornado
             get { return this.fechaCorrida; }
         }
 
+        /// <summary>
+        /// Obtiene la cantidad de líneas del pedido.-
+        /// </summary>
+        public int CantidadDeLineas
+        {
+            get { return this.cantidadDeLineas; }
+        }
+
         #endregion
 
         /// <summary>
@@ -160,7 +184,7 @@ namespace Tornado
             Assembly myAssembly = Assembly.GetExecutingAssembly();
 
             rutaArchivoIni = Path.GetDirectoryName(myAssembly.Location) + "\\";
-            nombreArchivoIni = nombreArchivoIni;
+            //nombreArchivoIni = nombreArchivoIni;
 
             string iSQL = "*Ninguna";
             string mensaje = "";
@@ -207,6 +231,8 @@ namespace Tornado
                 this.propietario = pedidoBuscado.Rows[0].Field<string>("PAP_STORERKEY");
                 this.usuarioDeAlta = pedidoBuscado.Rows[0].Field<string>("ADDWHO");
                 this.fechaDeAlta = pedidoBuscado.Rows[0].Field<DateTime>("ADDDATE");
+                this.almacen = pedidoBuscado.Rows[0].Field<string>("PAP_WHSEID");
+                this.cantidadDeIntentos = System.Convert.ToInt32(pedidoBuscado.Rows[0].Field<string>("PAP_INTENTOS"));
 
                 if (pedidoBuscado.Rows[0]["NroCorrida"] is DBNull)
                 {
@@ -254,6 +280,8 @@ namespace Tornado
                     }
                     this.lineas.Add(nuevaLinea);
                 }
+
+                this.cantidadDeLineas = this.lineas.Count();
             }
             else
             {
@@ -397,11 +425,13 @@ namespace Tornado
             string mensaje = "";
             DataTable pedidosBuscados = null;
             Connection cn;
-            
-            iSQL = "select * from [INTERFACES_LPFAD].[dbo].[125_ConfirmacionDePicking] ";
-            iSQL += "where PAP_WHSEID = 'wmwhse1' ";
-            iSQL += "and PAP_STORERKEY = 'ST JUDE'  ";
-            iSQL += "and PAP_PROCESS = " + (int)EstadosDePedido.Pendiente;
+
+            iSQL = "select PAP_SOURCESYSTEM, PAP_SOURCECODE, PAP_PROCESS, PAP_WHSEID, PAP_STORERKEY, PAP_EXTERNORDERKEY, PAP_EXTERNALORDERKEY2, PAP_INTENTOS, PAP_PROCESS, COUNT(*) ";
+            iSQL += "from[INTERFACES_LPFAD].[dbo].[125_ConfirmacionDePicking]";
+            iSQL += "where PAP_WHSEID = 'wmwhse1'";
+            iSQL += "and PAP_STORERKEY = 'ST JUDE'";
+            iSQL += "and PAP_PROCESS = '" + ((int)EstadosDePedido.Pendiente).ToString() + "' ";
+            iSQL += "group by PAP_SOURCESYSTEM, PAP_SOURCECODE, PAP_PROCESS, PAP_WHSEID, PAP_STORERKEY, PAP_EXTERNORDERKEY, PAP_EXTERNALORDERKEY2, PAP_INTENTOS, PAP_PROCESS";
 
             try
             {

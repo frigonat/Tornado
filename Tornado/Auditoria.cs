@@ -256,8 +256,8 @@ namespace Tornado
             foreach (DataRow r in auditoriasEncontradas.Rows)
             {
                 Auditoria a = new Auditoria(r.Field<int>("idAuditoria"));
-                a.fechaInicio = a.fechaInicio.AddHours(-3);
-                a.fechaFin = a.fechaFin.AddHours(-3);
+                a.fechaInicio = a.fechaInicio;
+                a.fechaFin = a.fechaFin;
                 listaParaDevolver.Add(a); 
             }
 

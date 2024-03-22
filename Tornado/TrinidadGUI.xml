@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TrinidadGUI</name>
+    </assembly>
+    <members>
+        <member name="T:Trinidad.GUI.Operaciones">
+            <summary>
+            Lista de operaciones para las cuales debe realizarse la validación previa.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.id">
+            <summary>
+            El Id de cada columna en la base de datos.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.nombre">
+            <summary>
+            El nombre de la columna; debe coincidir con la propiedad "name" de la columna en la grilla y no puede quedar vacío.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.encabezado">
+            <summary>
+            El encabezado de la columna. Debe coincidir con la propiedad Text de la columna de la grilla; no puede quedar vacío.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.grilla">
+            <summary>
+            El nombre de la grilla a la que pertenece la columna.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.formulario">
+            <summary>
+            Nombre del formulario donde se encuentra la grilla que contiene a las columnas.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.usuario">
+            <summary>
+            El nombre del usuario para el que se guarda la configuración.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.pantalla">
+            <summary>
+            Nombre del dispositivo para el que se guarda la configuración.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.visible">
+            <summary>
+            Indica si la columna debe visualizarse o no en la configuración del usuario.-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.posicion">
+            <summary>
+            Ubicación de la columna dentro de la grilla, para la configuración del usuario/pantalla. Es un índice de base 0 (cero).-
+            </summary>
+        </member>
+        <member name="F:Trinidad.GUI.ColumnaDeGrilla.ancho">
+            <summary>
+            Ancho de la columna en la configuración del usuario. Este es el valor que se guardará en la propiedad "Width" de la columna.-
+            </summary>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.#ctor">
+            <summary>
+            Genera una nueva instancia de la clase ColumnaDeGrilla.-
+            </summary>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.#ctor(System.Int32)">
+            <summary>
+            Genera una nueva instancia de la clase de acuerdo al Id recibido.-
+            </summary>
+            <param name="idBuscado">Id de la columna que se busca.-</param>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.Devolver(System.String,System.String)">
+            <summary>
+            Devuelve un conjunto de columnas de grilla, según los parámetros recibidos, para generar una configuración particular.-
+            </summary>
+            <param name="formularioBuscado">Nombre del formulario donde se encuentra la grilla con las columnas que se buscan.-</param>
+            <param name="grillaBuscada">Nombre de la grilla que contiene a las columnas que se buscan.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.Devolver(System.String,System.String,System.String,System.String)">
+            <summary>
+            Devuelve una lista de objetos ColumnaDeGrilla que responde a los parámetros recibidos.-
+            </summary>
+            <param name="formularioBuscado">Nombre del formulario donde se encuentra la grilla con las columnas cuya configuración se busca.-</param>
+            <param name="grillaBuscada">Nombre de la grilla que contiene a las columnas cuya configuración se desea obtener.-</param>
+            <param name="usuarioBuscado">Nombre del usuario para que el que se desea obtener la configuración.-</param>
+            <param name="pantallaBuscada">Nombre del dispositivo para el que se desea obtener la configuración de las columnas.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.Devolver(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Devuelve una lista de objetos ColumnaDeGrilla que responde a los parámetros recibidos.-
+            </summary>
+            <param name="formularioBuscado">Nombre del formulario donde se encuentra la grilla con las columnas cuya configuración se busca.-</param>
+            <param name="grillaBuscada">Nombre de la grilla que contiene a las columnas cuya configuración se desea obtener.-</param>
+            <param name="usuarioBuscado">Nombre del usuario para que el que se desea obtener la configuración.-</param>
+            <param name="pantallaBuscada">Nombre del dispositivo para el que se desea obtener la configuración de las columnas.-</param>
+            <param name="crearSiNoExiste">Indica si debe crearse la configuración buscada en el caso en que no exista.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.DevolverNombres(System.String,System.String)">
+            <summary>
+            Devuelve una lista con los nombres de todas las columnas de la grilla indicada.-
+            </summary>
+            <param name="formularioBuscado">Nombre del formulario donde se encuentra la grilla con las columnas cuyos nombres se desean obtener.-</param>
+            <param name="grillaBuscada">Nombre de la grilla que contiene a las columnas cuyos nombres se desean obtener.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.DevolverNombresConEncabezados(System.String,System.String)">
+            <summary>
+            Devuelve una lista con los nombres de todas las columnas de la grilla indicada.-
+            </summary>
+            <param name="formularioBuscado">Nombre del formulario donde se encuentra la grilla con las columnas cuyos nombres se desean obtener.-</param>
+            <param name="grillaBuscada">Nombre de la grilla que contiene a las columnas cuyos nombres se desean obtener.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.Validar(Trinidad.GUI.Operaciones)">
+            <summary>
+            Valida que el objeto esté listo para la operación como parámetro, contra la base de datos.-
+            </summary>
+            <param name="operacionParaValidar">El valor de Operaciones que identifica a la operación para la cual se realiza la validación.-</param>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.Insertar">
+            <summary>
+            Inserta una nueva columna en la base de datos otorgándole un Id.-
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.Actualizar">
+            <summary>
+            Actualiza la información de una columna en particular.-
+            </summary>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.GenerarConfiguracion(System.String,System.String)">
+            <summary>
+            Genera la configuración de columnas para el formulario y grilla que se reciben como parámetros.-
+            </summary>
+            <param name="formulario">Nombre del formulario donde se encuentra la grilla cuya configuración se desea generar.-</param>
+            <param name="grilla">Nombre de la grilla cuya configuración se desea generar.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.verInformacionDeColumnas(System.Windows.Forms.Form,System.Windows.Forms.DataGridView)">
+            <summary>
+            Muestra un MessageBox con la información de las columnas de la grilla recibida como parámetro.-
+            </summary>
+            <param name="formulario">Nombre del formulario que contiene a la grilla a revisar.-</param>
+            <param name="grilla">Nombre de la grilla de cuyas columnas desea obtenerse información.-</param>
+        </member>
+        <member name="M:Trinidad.GUI.ColumnaDeGrilla.obtenerConexion">
+            <summary>
+            Obtiene el objeto de conexión a la base donde se encuentran los datos de las columnas de grillas.- 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Id">
+            <summary>
+            Obtiene el Id de la columna.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Encabezado">
+            <summary>
+            Obtiene el encabezado de la columna.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Nombre">
+            <summary>
+            Obtiene el nombre de la columna.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Grilla">
+            <summary>
+            Obtiene el nombre de la grilla al que pertenece la columna.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Formulario">
+            <summary>
+            Obtiene el nombre del formulario donde se ubica la grilla con las columnas.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Usuario">
+            <summary>
+            Obtiene el nombre del usuario para el que se guarda la configuración de las columnas.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Pantalla">
+            <summary>
+            Obtiene el nombre del dispositivo para el que se guarda la configuración de las columnas.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Visible">
+            <summary>
+            Obtiene/establece el valor que indica si la columna debe visualizarse en la grilla (true) o no (false).-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Posicion">
+            <summary>
+            Obtiene/establece la posición de la columna en la grilla.-
+            </summary>
+        </member>
+        <member name="P:Trinidad.GUI.ColumnaDeGrilla.Ancho">
+            <summary>
+            Obtiene/establece el ancho de la columna en la grilla.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaNoEncontradaException">
+            <summary>
+            Excepción que se produce cuando no se encuentra un columna con el Id que se especifica.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaSinIdException">
+            <summary>
+            Excepción que se produce cuando se intenta una operación de ACTUALIZACION con una columna que no está grabada en la base de datos y por lo tanto no tiene un Id.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaConIdException">
+            <summary>
+            Excepción que se produce cuando se intenta una operación de INSERCION con una columna que ya está grabada en la base de datos con un determinado Id.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnasNoEncontradasException">
+            <summary>
+            Excepción que se produce cuando no se encuentran las columnas especificadas.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaSinNombreException">
+            <summary>
+            Excepción que se produce cuando no se especifica el nombre de una columna.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaSinGrillaException">
+            <summary>
+            Excepción que se produce cuando no se especifica el nombre de la grilla a la que pertenece la columna.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaSinFormularioException">
+            <summary>
+            Excepción que se produce cuando no se especifica el nombre del formulario para una columna.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaSinUsuarioException">
+            <summary>
+            Excepción que se produce cuando no se especifica el nombre de usuario para una columna.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaSinPantallaException">
+            <summary>
+            Excepción que se produce cuando no se especifica el nombre del dispositivo para una columna.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnaNoInsertadaException">
+            <summary>
+            Excepción que se produce cuando no se puede insertar una columna en la base de datos.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ColumnasNoEliminadasException">
+            <summary>
+            Excepción que se produce cuando no se pueden eliminar de la base de datos las columnas especificada.-
+            </summary>
+        </member>
+        <member name="T:Trinidad.GUI.ConfiguracionExistenteException">
+            <summary>
+            Excepción que se dispara para indicar que existe la configuración buscada.-
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -18,6 +18,8 @@ namespace Tornado
         private Assembly myAssembly;
         private string rutaConfig;
         private string archivoConfig;
+        private ContextMenuStrip cmPedidos;
+        private ContextMenuStrip cmEjecuciones;
         public DateTime fechaNula = new DateTime(1900, 1, 1, 0, 0, 0);
         
 
